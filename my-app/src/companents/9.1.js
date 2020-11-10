@@ -1,19 +1,29 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-import GlobalState from '../pullstate';
+import { useHistory } from 'react-router-dom';
+import GlobalState, { updateButtonsStatus } from '../pullstate';
 import ConnectionError from './2.2.errors';
-import Keyboard from './keyboard';
+// import Keyboard from './keyboard';
 import Modal from './modal';
 import ScanDocs1 from './scan.pop.1.js'
 
 
 const Screen91 = () => {
 
+    const history = useHistory();
     const docList = GlobalState.useState(s => s.documentsList);
     const lgotType = GlobalState.useState(s => s.lgotType);
+    let btnList = GlobalState.useState(s => s.documentsList[lgotType].doclist);
+
+    // ошибки
     const [isNoConnect, setIsNoConnect] = useState(false);
+    const [isScanError, setIsScanError] = useState({
+        anotherDoc: false,
+        badScan: false,
+        buildError: false,
+        noCorrect: false,
+    })
 
-
+    // для рендера кнопок
     function getText(text) {
         const arr = text.split(' ')
         if (arr.length > 4 ){
@@ -33,7 +43,6 @@ const Screen91 = () => {
             )
         }
     }
-
     const toRender = () => {
         return (
             docList[lgotType].doclist.map((doc) => {
@@ -41,19 +50,30 @@ const Screen91 = () => {
                 return (
                     <div className='scan-page__item'>
                         {getText(doc.name)}
-                        <button name={doc.name} className='btnMini btnText' onClick={() => {goToScan(doc.name)}} disabled={doc.desable} style={{background: doc.scaned && 'linear-gradient(#f6a439, #d88312)'}}> Сканировать </button>
+                        <button name={doc.name} className='btnMini btnText' onClick={() => {goToScan(doc.name)}} disabled={doc.disable} style={{background: doc.scaned && 'linear-gradient(#f6a439, #d88312)'}}> Сканировать </button>
                     </div>
                 )
             })
         )
     }
-    // disabled={doc.desable}
 
+    // переход на нужный вид скана
     const [currentScan, setCurrentScan] = useState(false);
-
     function goToScan(doctype) {
         setCurrentScan(doctype);
     }
+
+    // проверка готовности ВСЕХ сканов 
+    function checkScans( el ) {
+        return el.scaned === true; 
+    }
+    const nextWindow = () => {
+        if (btnList.every(checkScans) === true) {
+            history.push('/9.2')
+        }
+    }
+    setTimeout(nextWindow, 2000);
+
 
     return (  
         <div className='skan-page page'>

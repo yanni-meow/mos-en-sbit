@@ -10,10 +10,10 @@ const GlobalState = new Store({
         veteran: {
             title: 'Ветеран труда',
             doclist: [
-                {id:0, name: 'Паспорт', scaned: false, desable: false}, 
-                {id:1, name: 'СНИЛС', scaned: false, desable: true}, 
-                {id:2, name: 'Удостоверение «Ветеран труда»', scaned: false, desable: true},
-                {id:3, name: 'Пенсионное удостоверение или иной документ, подтверждающий назначение пенсии', scaned: false, desable: true},
+                {id:0, name: 'Паспорт', scaned: false, disable: false}, 
+                {id:1, name: 'СНИЛС', scaned: false, disable: true}, 
+                {id:2, name: 'Удостоверение «Ветеран труда»', scaned: false, disable: true},
+                {id:3, name: 'Пенсионное удостоверение или иной документ, подтверждающий назначение пенсии', scaned: false, disable: true},
             ], 
         },
         sirota: {
@@ -35,7 +35,6 @@ const GlobalState = new Store({
         sirota: {},
     }
 });
-
 export default GlobalState;
 
 export const updateGlobalState = (values) => {
@@ -46,3 +45,23 @@ export const updateGlobalState = (values) => {
     };
     GlobalState.update(updatedValues);
 };
+
+// обновление кнопок сканирования
+export const updateButtonsStatus = (key, buttonIndex) => {
+    const cState = GlobalState.getRawState();
+  
+    let ButtonStatus = cState.documentsList[key].doclist;
+  
+    let currentButton = { ...ButtonStatus[buttonIndex], scaned: true };    
+    let nextButton = { ...ButtonStatus[buttonIndex + 1], disable: false };
+  
+    ButtonStatus = ButtonStatus.map((el) => {
+      if (el.id === currentButton.id) return el = currentButton;
+      if (el.id === nextButton.id) return el = nextButton;
+      return el;
+    });
+  
+    GlobalState.update((s) => {
+      s.documentsList[key].doclist = ButtonStatus;
+    });
+  };

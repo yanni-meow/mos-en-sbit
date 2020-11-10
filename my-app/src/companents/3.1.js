@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 
 import bill from '../images/bill.png';
 import point from '../images/gps.png';
@@ -9,7 +9,9 @@ const Screen31 = () => {
 
     const [wrongData, setWrongData] = useState(false);
 
+    const history = useHistory();
     function errorCheck() {
+        history.push('/4.1');
         // history.push('/');
         // setWrongData(true);
     }
@@ -24,7 +26,7 @@ const Screen31 = () => {
                 Если указанные данные не верны, <br />
                 свяжитесь с оператором.
             </div> 
-            <Link to='/' className='btnWhole'><img className='btnIcon' src={ video } /><p className='btnText'>Связаться с оператором</p></Link>
+            <Link to='/videocall' className='btnWhole'><img className='btnIcon' src={ video } /><p className='btnText'>Связаться с оператором</p></Link>
             </>
             : 
             <> <h4>Подтвердите правильность адреса. <br/>

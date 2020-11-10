@@ -7,7 +7,8 @@ const ConnectionError = () => {
     // }
 
     return (  
-        <div className='error-text' style={{ height: '30vh', fontWeight: '600'}}> СУВК не оттвечает. <br/>  Просьба обратиться позднее. <br/>  Приносим свои извинения! <br/> </div>  
+        <div className='error-text' style={{
+            minHeight: '30vh'}}> СУВК не оттвечает. <br/>  Просьба обратиться позднее. <br/>  Приносим свои извинения!</div>  
     );
 }
  

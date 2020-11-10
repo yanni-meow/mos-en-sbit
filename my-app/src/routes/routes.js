@@ -11,6 +11,7 @@ import Screen51 from '../companents/5.1';
 import Screen61 from '../companents/6.1';
 import Screen91 from '../companents/9.1';
 import Screen92 from '../companents/9.2';
+import VideoCall from '../companents/videocall';
 
 function Wrapp (Component, props) {
     return (
@@ -35,7 +36,7 @@ const Routes = () => {
                 <Route path='/6.1' render={ (props) => Wrapp (Screen61, props) } />
                 <Route path='/9.1' render={ (props) => Wrapp (Screen91, props) } />
                 <Route path='/9.2' render={ (props) => Wrapp (Screen92, props) } />
-                {/* <Route path='/' render={ (props) => Wrapp (, props) } /> */}
+                <Route path='/videocall' render={ (props) => Wrapp (VideoCall, props) } />
                 {/* <Route path='/' render={ (props) => Wrapp (, props) } /> */}
                 {/* <Route path='/' render={ (props) => Wrapp (, props) } /> */}
             </Switch>

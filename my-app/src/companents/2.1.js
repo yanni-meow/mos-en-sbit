@@ -12,7 +12,7 @@ const Screen2 = () => {
     const history = useHistory();
         
         // Screen2.3
-    const [wrongData, setWrongData] = useState(false);
+    const [wrongData, setWrongData] = useState(true);
     const [isNoConnect, setIsNoConnect] = useState(false);
 
     function errorCheck() {
@@ -38,9 +38,9 @@ const Screen2 = () => {
                 <div className={`num__box ${(wrongData) ? 'error-box' : 'orange-box'}`}>{ value }</div>
                 <div> <KeyboardNum value={value} setValue={setValue}/> </div>
             </div>
-            {wrongData ? <> <Link to='/' className='btnHalf'><p className='btnText'>Связаться с оператором</p></Link> 
-                        <Link to='/' className='btnHalf'><p className='btnText'>Далее</p></Link> </>
-                        : <button onClick={ errorCheck } className='btnWhole'><p className='btnText'>Далее</p></button> 
+            {wrongData ? <> <Link to='/videocall' className='btnHalf'><p className='btnText'>Связаться с оператором</p></Link> 
+            <button onClick={ errorCheck } className='btnHalf'><p className='btnText'>Далее</p></button> </>
+            : <button onClick={ errorCheck } className='btnWhole'><p className='btnText'>Далее</p></button> 
             } </>
             }
         </div>

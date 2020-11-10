@@ -66,11 +66,11 @@ const Keyboard = (props) => {
 
             <div className={`keyboard__input ${(wrongData) ? 'error-box' : null}`}> { dataState[currentInput] } </div>
 
-            <div className='keyboard__keys'>
+            { wrongData &&
+                <p className='error-text' style={{minHeight: 'max-content'}} >Проверьте правильность ввода контактных данных и нажмите "Применить"</p>
+            }
 
-                { wrongData && <div>
-                    <p className='error-text' >Проверьте правильность ввода контактных данных и нажмите "Применить"</p>
-                </div>  }
+            <div className='keyboard__keys'>
 
                 { (currentInput === 'telState') ? 
                 <>

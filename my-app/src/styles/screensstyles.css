@@ -139,3 +139,8 @@
 /* .scan-page__item h3 span { font-size: 22px;} */
 
 button:disabled { border: none; background: linear-gradient(rgb(109, 109, 109), rgb(139, 139, 139))}
+
+#videocall-window {
+    height: 45vh;
+    width: 60vw;
+}

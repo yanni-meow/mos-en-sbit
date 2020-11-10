@@ -1,20 +1,27 @@
 import React, { useState } from 'react';
-// import { Link } from 'react-router-dom';
-import GlobalState from '../pullstate';
+import { useHistory } from 'react-router-dom';
+import GlobalState, { updateButtonsStatus } from '../pullstate';
 import ConnectionError from './2.2.errors';
 import Modal from './modal';
 import ScanDocs1 from './scan.pop.1.js';
 
 const Screen92 = () => {
+
+    const history = useHistory();
     const dopDocList = GlobalState.useState(s => s.dopDocList);
     const lgotType = GlobalState.useState(s => s.lgotType);
-    const [isNoConnect, setIsNoConnect] = useState(true);
+    let btnList = GlobalState.useState(s => s.dopDocList[lgotType].doclist);
+
+    // ошибки
+    const [isNoConnect, setIsNoConnect] = useState(false);
     const [isScanError, setIsScanError] = useState({
         anotherDoc: false,
         badScan: false,
         buildError: false,
+        noCorrect: false,
     })
 
+    // для рендера кнопок
     const toRender = () => {
         return (
             dopDocList[lgotType].doclist.map((doc) => {
@@ -33,6 +40,19 @@ const Screen92 = () => {
     function goToScan(doctype) {
         setCurrentScan(doctype);
     }
+
+// зачёт сканированных доков!!!!!!!
+
+    // проверка готовности ХОТЯ БЫ ОДНОГО скана 
+    // function checkScans( el ) {
+    //     return el.scaned === true; 
+    // }
+    // const nextWindow = () => {
+    //     if (btnList.some(checkScans) === true) {
+    //         history.push('/5.1')
+    //     }
+    // }
+    // setTimeout(nextWindow, 2000);
 
     return (  
         <div className='skan-page page'>
