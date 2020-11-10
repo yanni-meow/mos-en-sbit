@@ -57,12 +57,6 @@
     word-wrap: break-word;
     text-align: left;
 }
-.orngText {
-    font-size: 32px;
-    color: #db8b22;
-    width: max-content;
-    font-weight: 600;    
-}
 
 /* fio */
 .fio__box {
@@ -70,7 +64,6 @@
     display: flex;
     flex-direction: column;
 }
-
 .fio__item {
     display: flex;
     flex-direction: row;
@@ -78,7 +71,6 @@
     justify-content: flex-end;
     margin-bottom: 2vh;
 }
-
 .fio__input {
     display: flex;
     align-items: center;
@@ -92,12 +84,58 @@
     padding: 10px 30px;
     font-size: 28px;
 }
-
 .fio__item:first-child::after,
-.fio__item:nth-child(2)::after {
+.fio__item:nth-child(2)::after,
+.fioform .fio__item:nth-child(3)::after {
     content: '*';
     position: absolute;
     right: 11vw;
     font-size: 34px;
     color: #db8b22;
 }
+
+/* lgoti list */
+.lgotListPage {
+    height: 60vh;
+    width: 70vw;
+}
+.veteranBox {
+    max-width: 80vw;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 4vh 2vw;
+    margin: 2vh 0;
+}
+.veteranBox h3 { 
+    width: 70vw;
+}
+
+/* scan-doc-page */
+
+.skan-page__box {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80vw;
+    padding: 1vh 2vw 4vh;
+}
+.scan-page__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    min-height: 23vh;    
+    margin: 0 .8vw;
+}
+.scan-page__item h3 {
+    width: 17vw;
+    min-height: 20vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.scan-page__item button { width: 17vw;}
+/* .scan-page__item h3 span { font-size: 22px;} */
+
+button:disabled { border: none; background: linear-gradient(rgb(109, 109, 109), rgb(139, 139, 139))}

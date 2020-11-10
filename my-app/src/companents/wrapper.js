@@ -11,7 +11,6 @@ import homeIcon from '../images/home.png';
 const Wrapper = ( {children} ) => {
 
     const url = window.location.href;
-    console.log('url === ', url);
 
     return (  
         <div className='wrapperBox'>

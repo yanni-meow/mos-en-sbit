@@ -3,24 +3,24 @@ import ArrowL from '../images/arrowL.png';
 import ArrowUp from '../images/arrowUp.png';
 import Eath from '../images/global.png';
 
-const Keyboard = (props) => {
+const Keyboard = (props) => { 
     const { currentInput, setCurrentInput, dataState, setDataState } = props;
     
     const [upCase, setUpCase] = useState(false);
-    const [rusLanguage, setRusLanguage] = useState((currentInput === 'fioState') ? true : false);
+    const [rusLanguage, setRusLanguage] = useState((currentInput !== 'emailState') ? true : false);
     const [wrongData, setWrongData] = useState(false);
 
-    const numbers = ['+',1,2,3,4,5,6,7,8,9,0, <img src={ArrowL} onClick={() => delKey(0)} /> ];
+    const numbers = ['+',1,2,3,4,5,6,7,8,9,0, <img src={ArrowL} onClick={() => delKey(0)}/>];
 
-    const keys1 = ['~','1','2','3','4','5','6','7','8','9','0','-','+'];
+    const keys1 = ['~','1','2','3','4','5','6','7','8','9','0','-','+', <img src={ArrowL} onClick={() => delKey(0)}/>];
     const keys2 = ['#','q','w','e','r','t','y','u','i','o','p','[',']','_'];
     const keys3 = ['$','a','s','d','f','g','h','j','k','l',';',"'",'"','!'];
-    const keys4 = ['z','x','c','v','b','n','m',',','^','/','?','{','}'];
+    const keys4 = [<img src={ArrowUp} onClick={toUpCase}/> ,'z','x','c','v','b','n','m',',','^','/','?','{','}'];
     const keys5 = ['%','&','*',<img src={Eath} onClick={() => changeLanguage() }/>,' ','.','@'];
 
     const keys2ru = ['#','й','ц','у','к','е','н','г','ш','щ','з','х','ъ','ё'];
     const keys3ru = ['$','ы','ы','в','а','п','р','о','л','д','ж',"э",'"',"'"];
-    const keys4ru = ['я','ч','с','м','и','т','ь','б','ю','/',',','?','!'];
+    const keys4ru = [<img src={ArrowUp} onClick={toUpCase}/>,'я','ч','с','м','и','т','ь','б','ю','/',',','?','!'];
 
     function letKey(numb) {
         if (typeof numb !== "object") {
@@ -46,6 +46,8 @@ const Keyboard = (props) => {
             renderArray = array.map(key => {
                 if(typeof(key) === 'string'){
                     return key.toUpperCase();
+                } else {
+                    return key;
                 }
             })
         }
@@ -60,42 +62,39 @@ const Keyboard = (props) => {
 
     return (
 
-        <div className='keyboard'>
-            <div className={`keyboard__input ${(wrongData) ? 'error__box' : null}`}> { dataState[currentInput] } </div>
+        <div className='keyboard modal'>
+
+            <div className={`keyboard__input ${(wrongData) ? 'error-box' : null}`}> { dataState[currentInput] } </div>
+
             <div className='keyboard__keys'>
+
                 { wrongData && <div>
                     <p className='error-text' >Проверьте правильность ввода контактных данных и нажмите "Применить"</p>
                 </div>  }
+
                 { (currentInput === 'telState') ? 
-                    <>
+                <>
                     <div className='numbers'>
                         {makeButtons(numbers)}
                     </div>
-                    <button className='btnHalf' onClick={() => {setWrongData(true)}} style={{marginTop: '3vh', height: '10vh', width: '20vw'}}> 
+                    <button className='btnHalf' onClick={() => {setCurrentInput(false)}} style={{marginTop: '3vh', height: '10vh', width: '20vw'}}> 
                         <p className='btnText'>Применить</p>
                     </button>
-                    </> : <>
-                    <div className='keyline keys1'>
-                        {makeButtons(keys1)}
-                        <button className='btnKey' onClick={() => delKey(0)}> 
-                            <img src={ ArrowL } /> 
-                        </button>
-                    </div>
+                </> : <>
+                    <div className='keyline keys1'> {makeButtons(keys1)} </div>
                     <div className='keyline keys2'> {makeButtons( rusLanguage ? keys2ru : keys2)} </div>
                     <div className='keyline keys3'> {makeButtons( rusLanguage ? keys3ru : keys3)} </div>
-                    <div className='keyline keys4'> 
-                        <button className='btnKey' onClick={toUpCase}> 
+                    <div className='keyline keys4'>                         
+                        {/* <button className={`btnKey ${(upCase) ? 'caps__on' : null}`} onClick={toUpCase}> 
                             <img src={ ArrowUp } /> 
-                        </button>
-                        {makeButtons( rusLanguage ? keys4ru : keys4)} 
-                    </div>
-                    <div className='keyline keys5'> 
-                        {makeButtons(keys5)} 
+                        </button> */}
+                        {makeButtons( rusLanguage ? keys4ru : keys4)} </div>
+                    <div className='keyline keys5'> {makeButtons(keys5)} 
                         <button className='btnKey' onClick={() => {setCurrentInput(false)}} > 
                             Применить
                         </button>
                     </div>
-                    </>
+                </>
                 }
             </div>
         </div>

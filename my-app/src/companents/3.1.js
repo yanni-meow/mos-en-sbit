@@ -33,12 +33,12 @@ const Screen31 = () => {
                 <div  className='lgot__confirm-address__box'>
                     <div className='lgot__confirm-address__item'>
                         <img src={ bill } />
-                        <p className='orngText'>Лицевой счёт: </p>
+                        <p className='orange-text'>Лицевой счёт: </p>
                         <h3> 1234567890 {} </h3>
                     </div>
                     <div className='lgot__confirm-address__item'>
                         <img src={ point } />
-                        <p className='orngText'>Адрес: </p>
+                        <p className='orange-text'>Адрес: </p>
                         <h3> г. Москва, Центральный проезд Серебрянного Бора, д. 152, кв. 321 {} </h3>
                     </div>
                 </div>

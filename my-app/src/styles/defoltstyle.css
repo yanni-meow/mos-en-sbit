@@ -41,8 +41,17 @@ h4 {
 }
 h5 {
     width: max-content;
+    margin: 0 auto;
     font-size: 24px;
     color: rgb(86, 86, 86);
+    line-height: 1.2;
+    font-weight: 600;
+}
+h6 {
+    width: max-content;
+    margin: 0 auto;
+    font-size: 34px;
+    color: #49567c;
     line-height: 1.2;
     font-weight: 600;
 }
@@ -54,7 +63,7 @@ a, button {
     justify-content: center;
     background:linear-gradient( #4661a9, #324377);
     border: 5px solid #fff;
-    border-radius: 20px;
+    border-radius: 12px;
     box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
 .btnIcon {
@@ -64,7 +73,7 @@ a, button {
 }
 .btnText {
     font-size: 30px;
-    font-weight: 5 00;
+    font-weight: 500;
     color: #fff;
     text-transform: uppercase;
     text-align: center;
@@ -73,6 +82,11 @@ a, button {
     background: linear-gradient(#f6a439, #d88312);
     width: 80vw;
     height: 13vh;
+}
+.btnThird {
+    width: 20vw;
+    height: 17vh;
+    padding: 1vh 2vw;
 }
 .btnHalf {
     width: 30vw;
@@ -84,6 +98,10 @@ a, button {
     height: 12vh;
     padding: 1vh 5vw;
 }
+.btnMini {
+    padding: 1.5vh 1vw;
+    font-size: 24px;
+}
 .page {
     width: 80vw;
     height: 70vh;
@@ -92,6 +110,14 @@ a, button {
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
+}
+.modal {
+    height: 73vh;
+    width: 95vw;
+    margin: 0 auto;
+    background: #fff;
+    border: 3px solid #d88312;
+    border-radius: 10px;
 }
 
 /* клавиатура - числа */
@@ -109,15 +135,15 @@ a, button {
     width: 48vw;
     height: 11vh;
     margin-bottom: 30px;
-    border: 3px solid #d88312;
-    border-radius: 10px;
+    /* border: 3px solid #d88312;
+    border-radius: 10px; */
 
     text-align: center;
     font-size: 40px;
     font-weight: 600;
     letter-spacing: 2px;
     color: rgb(86, 86, 86);
-    background-color: #fff;
+    /* background-color: #fff; */
 }
 .numbers {
     display: flex;
@@ -130,18 +156,10 @@ a, button {
 /* модал клавиатура */
 
 .keyboard {
-    height: 73vh;
-    width: 95vw;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-
-    margin: 0 auto;
-    background: #fff;
-    border: 3px solid #d88312;
-    border-radius: 10px;
-    z-index: 10;
 }
 .keyboard__input {
     width: 60vw;
@@ -203,14 +221,15 @@ a, button {
 .keys5 .btnKey:last-child { 
     width: 200px;
     font-size: 24px;
-    background: #304274;
+    background:linear-gradient( #49567c, #5066a1);
     color: #fff;
 }
+.caps__on { background:linear-gradient( #49567c, #6477ac);}
 
 
 /* ошибки  */
 
-.error__box { 
+.error-box { 
     border: 3px solid red; 
     box-shadow: 0 14px 14px rgba(255, 0, 0, 0.25), 0 5px 5px rgba(255, 0, 0, 0.22);
 }
@@ -222,4 +241,31 @@ a, button {
     color: red; 
     text-align: center;
     margin-top: -3vh;
+}
+
+/* стилизация оранж */
+
+.orange-box {
+    background: #fff;
+    border: 3px solid #d88312;
+    border-radius: 10px;
+}
+
+.orange-text {
+    font-size: 28px;
+    color: #db8b22;
+    width: max-content;
+    font-weight: 600;   
+}
+
+/* список */
+
+.list {
+    font-size: 24px;
+    color: rgb(86, 86, 86);
+    line-height: 1.2;
+    text-align: left;
+    
+    width: 45%;
+    margin: 3vh 0 3vh 3vw;
 }

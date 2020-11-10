@@ -35,7 +35,7 @@ const Screen2 = () => {
             </div>}
 
             <div  className='num__form'>
-                <div className={`num__box ${(wrongData) ? 'error__box' : null}`}>{ value }</div>
+                <div className={`num__box ${(wrongData) ? 'error-box' : 'orange-box'}`}>{ value }</div>
                 <div> <KeyboardNum value={value} setValue={setValue}/> </div>
             </div>
             {wrongData ? <> <Link to='/' className='btnHalf'><p className='btnText'>Связаться с оператором</p></Link> 

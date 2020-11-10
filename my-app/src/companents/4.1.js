@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Keyboard from './keyboard.js';
 import Modal from './modal.js';
+import FioForm from'./fioform.js';
 
 const Screen41 = () => {
 
@@ -16,10 +17,11 @@ const Screen41 = () => {
     function openModal(input) {
         setCurrentInput(input);
     }
-    
     return (  
        <div className='fioPage page'>
-            {currentInput && <Modal> { <Keyboard
+            {currentInput && <Modal> { 
+            (currentInput === 'fioState') ? <FioForm dataState={dataState} setDataState={setDataState} toCloseWindow={setCurrentInput}/> :            
+            <Keyboard
              currentInput={currentInput} setCurrentInput={setCurrentInput} dataState={dataState} setDataState={setDataState}/> } </Modal> }
             <div>
                 <h1>Открытие, переоформление льгот</h1>
@@ -38,10 +40,10 @@ const Screen41 = () => {
                     <h5>Электронная почта</h5>
                     <input placeholder='name@domain.ru' className='fio__input' value={dataState.emailState} onClick={() => {openModal('emailState')}}/>
                 </div>
-                <p className='orngText' style={{fontSize: '24px', margin: '0 auto'}}>Здесь и далее поля обозначенные символом "*" являются обязательными для заполнения</p>
+                <p className='orange-text' style={{fontSize: '24px', margin: '0 auto'}}>Здесь и далее поля обозначенные символом "*" являются обязательными для заполнения</p>
             </div>
             <Link to='/3.1' className='btnHalf'><p className='btnText'>Назад</p></Link>
-            <Link to='/' className='btnHalf'><p className='btnText'>Далее</p></Link>
+            <Link to='/5.1' className='btnHalf'><p className='btnText'>Далее</p></Link>
         </div>
     );
 }
