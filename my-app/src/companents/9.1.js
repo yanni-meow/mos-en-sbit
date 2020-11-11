@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import GlobalState, { updateButtonsStatus } from '../pullstate';
+import GlobalState from '../pullstate';
 import ConnectionError from './2.2.errors';
-// import Keyboard from './keyboard';
 import Modal from './modal';
 import ScanDocs1 from './scan.pop.1.js'
 

@@ -144,3 +144,9 @@ button:disabled { border: none; background: linear-gradient(rgb(109, 109, 109), 
     height: 45vh;
     width: 60vw;
 }
+
+.registration-box {
+    display:flex;
+    flex-direction:column;place-content:space-around; 
+    margin: 5vh 0;
+}

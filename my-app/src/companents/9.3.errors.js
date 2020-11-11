@@ -31,7 +31,7 @@ const Errors = (props) => {
 
         noOperator: <> <div className='error-text'> 
         В данный момент все операторы заняты.
-        <h5>Ваши данные были внесены в систему</h5> 
+        <h5 style={{padding: '2vh 0'}}>Ваши данные были внесены в систему</h5> 
         <h5>Попробуйте совершить звонок оператору позднее. <br/> Либо дождитесь когда оператор свяжется с Вами по указанному номеру.</h5>
         </div>
         <Link to='/home' className='btnHalf btnText' style={{margin: '0 auto'}}> Назад </Link>  </>,

@@ -21,9 +21,12 @@ const GlobalState = new Store({
             doclist: []
         },
     },
-    dopDocList: {
-        invalid: {},
-        veteran: {
+    dopDocumentsList: {
+        invalidDop: {
+            title: 'Инвалид',
+            doclist: [],
+        },
+        veteranDop: {
             title: 'Ветеран труда',
             doclist: [
                 {id:0, name: 'ЕЖД', scaned: false}, 
@@ -32,7 +35,10 @@ const GlobalState = new Store({
                 {id:3, name: 'Карточка учёта', scaned: false},
             ], 
         },
-        sirota: {},
+        sirotaDop: {
+            title: 'Сирота',
+            doclist: []
+        },
     }
 });
 export default GlobalState;
@@ -47,7 +53,8 @@ export const updateGlobalState = (values) => {
 };
 
 // обновление кнопок сканирования
-export const updateButtonsStatus = (key, buttonIndex) => {
+// ОСНОВНЫХ документов
+export const updateMainButtonsStatus = (key, buttonIndex) => {
     const cState = GlobalState.getRawState();
   
     let ButtonStatus = cState.documentsList[key].doclist;
@@ -64,4 +71,20 @@ export const updateButtonsStatus = (key, buttonIndex) => {
     GlobalState.update((s) => {
       s.documentsList[key].doclist = ButtonStatus;
     });
-  };
+};
+// ДОПОЛНИТЕЛЬНОГО документа
+export const updateDopButtonsStatus = (key, buttonIndex) => {
+    const cState = GlobalState.getRawState();
+  
+    let ButtonStatus = cState.dopDocumentsList[key].doclist;
+    let currentButton = { ...ButtonStatus[buttonIndex], scaned: true };    
+  
+    ButtonStatus = ButtonStatus.map((el) => {
+      if (el.id === currentButton.id) return el = currentButton;
+      return el;
+    });
+  
+    GlobalState.update((s) => {
+      s.dopDocumentsList[key].doclist = ButtonStatus;
+    });
+};

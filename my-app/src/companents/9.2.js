@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import GlobalState, { updateButtonsStatus } from '../pullstate';
+import GlobalState from '../pullstate';
 import ConnectionError from './2.2.errors';
 import Modal from './modal';
 import ScanDocs1 from './scan.pop.1.js';
@@ -8,9 +8,9 @@ import ScanDocs1 from './scan.pop.1.js';
 const Screen92 = () => {
 
     const history = useHistory();
-    const dopDocList = GlobalState.useState(s => s.dopDocList);
+    const dopDocumentsList = GlobalState.useState(s => s.dopDocumentsList);
     const lgotType = GlobalState.useState(s => s.lgotType);
-    let btnList = GlobalState.useState(s => s.dopDocList[lgotType].doclist);
+    let btnList = GlobalState.useState(s => s.dopDocumentsList[`${lgotType}Dop`].doclist);
 
     // ошибки
     const [isNoConnect, setIsNoConnect] = useState(false);
@@ -24,7 +24,7 @@ const Screen92 = () => {
     // для рендера кнопок
     const toRender = () => {
         return (
-            dopDocList[lgotType].doclist.map((doc) => {
+            dopDocumentsList[`${lgotType}Dop`].doclist.map((doc) => {
 
                 return (
                     <div className='scan-page__item'>
@@ -44,15 +44,15 @@ const Screen92 = () => {
 // зачёт сканированных доков!!!!!!!
 
     // проверка готовности ХОТЯ БЫ ОДНОГО скана 
-    // function checkScans( el ) {
-    //     return el.scaned === true; 
-    // }
-    // const nextWindow = () => {
-    //     if (btnList.some(checkScans) === true) {
-    //         history.push('/5.1')
-    //     }
-    // }
-    // setTimeout(nextWindow, 2000);
+    function checkScans( el ) {
+        return el.scaned === true; 
+    }
+    const nextWindow = () => {
+        if (btnList.some(checkScans) === true) {
+            history.push('/9.4')
+        }
+    }
+    setTimeout(nextWindow, 2000);
 
     return (  
         <div className='skan-page page'>
@@ -64,10 +64,10 @@ const Screen92 = () => {
             { isNoConnect ? <ConnectionError /> :
             
             <><div>
-                <h2>{dopDocList[lgotType].title}</h2>
+                <h2>{dopDocumentsList[`${lgotType}Dop`].title}</h2>
                 <h6>Отсканируте один из документов, имеющийся в наличии</h6>
             </div>
-            <div className='orange-box skan-page__box' style={{    marginBottom: '12vh'}}>
+            <div className='orange-box skan-page__box' style={{ marginBottom: '12vh'}}>
                 {toRender()}
             </div></> 
             

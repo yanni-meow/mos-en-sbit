@@ -4,7 +4,7 @@ import Errors from './9.3.errors';
 import Modal from './modal';
 
 const VideoCall = () => {
-    const [isOperatorError, setIsOperatorError] = useState(true);
+    const [isOperatorError, setIsOperatorError] = useState(false);
 
     return ( 
         <div className='videocall-page page'>

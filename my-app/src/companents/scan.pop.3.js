@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import GlobalState, { updateButtonsStatus } from '../pullstate';
+import GlobalState, { updateMainButtonsStatus, updateDopButtonsStatus } from '../pullstate';
 
 const ScanDocs3 = (props) => {
     const { currentScan, setCurrentScan } = props;
@@ -8,19 +8,34 @@ const ScanDocs3 = (props) => {
     const lgotType = GlobalState.useState(s => s.lgotType);
 
     // зачёт сканированных доков и разблокировка следующих
-    let docId = () => {
+    let docMainId = () => {
         if(currentScan === 'Паспорт') {
             return 0            
         } else if (currentScan === 'СНИЛС') {
             return 1            
         } else if (currentScan === 'Удостоверение «Ветеран труда»') {
             return 2            
-        } else {
+        } else if (currentScan === 'Пенсионное удостоверение или иной документ, подтверждающий назначение пенсии') {
             return 3            
         }
     }
+
+    let docDopId = () => {
+        if(currentScan === 'ЕЖД') {
+            return 0            
+        } else if (currentScan === 'Выписка из домой книги') {
+            return 1            
+        } else if (currentScan === 'Копия ФЛС') {
+            return 2            
+        } else if (currentScan === 'Карточка учёта') {
+            return 3            
+        }
+    }
+
     function nextScan(n) {
-        updateButtonsStatus(lgotType, docId());
+        updateMainButtonsStatus(lgotType, docMainId());
+        updateDopButtonsStatus(`${lgotType}Dop`, docDopId());
+
         // завершение попапов
         setCurrentScan(false);
     }
@@ -35,7 +50,7 @@ const ScanDocs3 = (props) => {
                 pasport here
             </h3>
             <Link to='/9.2' className='btnHalf btnText' >Повторить</Link>
-            <button className='btnHalf btnText' onClick={() => {nextScan(docId())}} >Принять</button>
+            <button className='btnHalf btnText' onClick={() => {nextScan(docMainId()) || nextScan(docDopId())}} >Принять</button>
         </div>
     );
 }
