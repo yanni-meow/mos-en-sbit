@@ -57,6 +57,27 @@ h6 {
     line-height: 1.2;
     font-weight: 600;
 }
+.page {
+    width: 80vw;
+    height: 70vh;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-around;
+}
+.modal {
+    display: flex;
+    align-items: center;
+
+    height: 73vh;
+    width: 95vw;
+    margin: 0 auto;
+    background: #fff;
+    border: 3px solid #d88312;
+    border-radius: 10px;
+    z-index: 10;
+}
 
 a, button { 
     display: flex;
@@ -105,27 +126,7 @@ a, button {
     padding: 1.5vh 1vw;
     font-size: 24px;
 }
-.page {
-    width: 80vw;
-    height: 70vh;
-    margin: 0 auto;
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: space-around;
-}
-.modal {
-    display: flex;
-    align-items: center;
-
-    height: 73vh;
-    width: 95vw;
-    margin: 0 auto;
-    background: #fff;
-    border: 3px solid #d88312;
-    border-radius: 10px;
-    z-index: 10;
-}
+button:disabled { border: none; background: linear-gradient(rgb(109, 109, 109), rgb(139, 139, 139))}
 
 /* клавиатура - числа */
 

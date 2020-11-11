@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
 import GlobalState from '../pullstate';
-import ConnectionError from './2.2.errors';
+import ConnectionError from './2.2.suvk_error';
 import Modal from './modal';
 import ScanDocs1 from './scan.pop.1.js'
 

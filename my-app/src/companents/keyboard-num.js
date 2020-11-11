@@ -1,6 +1,5 @@
 import React from 'react';
 import ArrowL from '../images/arrowL.png';
-import { Link } from 'react-router-dom';
 
 const KeyboardNum = (props) => {
     

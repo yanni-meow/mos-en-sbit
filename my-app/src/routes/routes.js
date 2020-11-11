@@ -1,6 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import Wrapper from '../companents/wrapper';
-import ConnectionError from '../companents/2.2.errors';
+import ConnectionError from '../companents/2.2.suvk_error';
 import Home from '../companents/1.home';
 import Screen12 from '../companents/1.2';
 import Screen13 from '../companents/1.3';
@@ -38,7 +38,7 @@ const Routes = () => {
                 <Route path='/9.1' render={ (props) => Wrapp (Screen91, props) } />
                 <Route path='/9.2' render={ (props) => Wrapp (Screen92, props) } />
                 <Route path='/videocall' render={ (props) => Wrapp (VideoCall, props) } />
-                <Route path='/9.4' render={ (props) => Wrapp (registrRequest, props) } />
+                {/* <Route path='/' render={ (props) => Wrapp (, props) } /> */}
                 {/* <Route path='/' render={ (props) => Wrapp (, props) } /> */}
             </Switch>
         </BrowserRouter>

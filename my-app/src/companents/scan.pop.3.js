@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import GlobalState, { updateMainButtonsStatus, updateDopButtonsStatus } from '../pullstate';
 
 const ScanDocs3 = (props) => {
@@ -49,7 +48,7 @@ const ScanDocs3 = (props) => {
             <h3 className='orange-box'>
                 pasport here
             </h3>
-            <Link to='/9.2' className='btnHalf btnText' >Повторить</Link>
+            <button className='btnHalf btnText' onClick={() => {setCurrentScan(false)}} >Повторить</button>
             <button className='btnHalf btnText' onClick={() => {nextScan(docMainId()) || nextScan(docDopId())}} >Принять</button>
         </div>
     );

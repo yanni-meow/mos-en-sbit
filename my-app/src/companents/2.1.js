@@ -1,18 +1,14 @@
 import React, { useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import KeyboardNum from './keyboard-num.js';
-import ConnectionError from './2.2.errors';
-
-
-// import Arrow from '../images/arrowL.png';
-// import KeyboardNum from './keyboard-num';
+import ConnectionError from './2.2.suvk_error';
 
 const Screen2 = () => {
     const [value, setValue] = useState('');
     const history = useHistory();
         
         // Screen2.3
-    const [wrongData, setWrongData] = useState(true);
+    const [wrongData, setWrongData] = useState(false);
     const [isNoConnect, setIsNoConnect] = useState(false);
 
     function errorCheck() {

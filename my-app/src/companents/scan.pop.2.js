@@ -22,7 +22,7 @@ const ScanDocs2 = (props) => {
             <h3 className='orange-box'>
                 pasport here
             </h3>
-            <button className='btnHalf btnText'>Повторить</button>
+            <button className='btnHalf btnText' onClick={() => {setCurrentScan(false)}}>Повторить</button>
             <button className='btnHalf btnText' onClick={goToScan2}>Принять</button>
         </div>
     );

@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
-// import Screen61 from './6.1';
 import Keyboard from './keyboard.js';
 import Modal from './modal.js';
-import { Link } from 'react-router-dom';
 
 const FioForm = (props) => {
     const {dataState, setDataState, toCloseWindow} = props;
