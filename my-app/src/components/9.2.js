@@ -10,7 +10,7 @@ const Screen92 = () => {
   const lgotType = GlobalState.useState((s) => s.lgotType);
   const btnList = GlobalState.useState((s) => s.documentsList[lgotType].dopDocList);
 
-  // ошибки
+  // ошибкиhhh
   const [isNoConnect, setIsNoConnect] = useState(false);
   const [isScanError, setIsScanError] = useState({
     anotherDoc: false,
