@@ -1,5 +1,4 @@
 /* дефолтные стили проекта */
-
 p {margin: 5px;}
 h1 { 
     width: 100vw;
@@ -108,7 +107,7 @@ a, button {
 }
 .btnThird {
     width: 20vw;
-    height: 17vh;
+    height: 10vh;
     padding: 1vh 2vw;
 }
 .btnHalf {
